@@ -5,19 +5,21 @@ output clk_out,
 input [7:0] div
 );
 
-wire isOdd = div & 8'h01; // there are two separate algorithm for odd and even numbers
+wire isOdd = div & 8'h01; // here are two separate algorithms for odd and even numbers
 
-wire [7:0] oN; // for odd algorithm
+// for odd algorithm
+wire [7:0] oN;
 assign oN = div;
 reg [7:0] pos_count, neg_count;
 
+// for even algorithm
 wire [7:0] eN;
-assign eN = div>>1; // for even algorithm
+assign eN = div>>1;
 reg [7:0] r_reg;
 wire [7:0] r_nxt;
 reg clk_track;
 
-assign r_nxt = r_reg+8'h01;  
+assign r_nxt = r_reg+8'h01;
 
 always @(posedge clk) begin
 	if(isOdd)begin // optional, reduces the noise
