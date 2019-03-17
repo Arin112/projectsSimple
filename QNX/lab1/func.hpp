@@ -1,7 +1,12 @@
 #ifndef FUNC_HPP
 #define FUNC_HPP
 template <typename UnusedType>
-class function;
+class function; // в этом файле просто лежит реализация function, которая должна бы уже быть в этой версии
+// но её нет, так что скопируем её откуда-то с просторов интернета
+// и дошлифуем чуть чуть под баги компилятора.
+// А ещё тут везве auto_ptr
+// ыыыы......
+// Потому что тогда ешё не было нормальных умных указателей.
 
 template <typename ReturnType, typename ... ArgumentTypes>
 class function <ReturnType (ArgumentTypes ...)>
@@ -38,6 +43,10 @@ public:
 	function operator = (const function & other)
 	{
 		auto t = (other.mInvoker->clone());
+		// собственно, это костыль
+		// никакие языковые особенности не должны мешать компилятору тут принять сразу результат ф-ции
+		// но приходится его сначала сохронить во временную переменную, а только потом присвоить
+		// просто потому, что иначе компилятор не съест
 		mInvoker = (t);
 		return *this;
 	}
