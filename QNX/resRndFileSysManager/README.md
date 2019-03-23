@@ -1,6 +1,6 @@
 ## File System Resource Manager
 Предположительно, в одной из следующих лабораторных работ может потребоваться сделать менеджер ресурсов использующий файловую систему. Здесь приведён пример менеджера ресурсов, который монтируется в `/dev/myRand`.
-Почти дословная копипаста [этого](http://www.qnx.com/developers/docs/qnxcar2/index.jsp?topic=%2Fcom.qnx.doc.neutrino.getting_started%2Ftopic%2Fs1_resmgr_io_read.html) мануала.
+Почти дословная копипаста [этого](http://www.qnx.com/developers/docs/qnxcar2/index.jsp?topic=%2Fcom.qnx.doc.neutrino.getting_started%2Ftopic%2Fs1_resmgr_read_complex.html) мануала.
 Проверить работоспособность можно при помощи
 ```bash
 ls /dev/myRand
